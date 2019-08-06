@@ -2138,12 +2138,9 @@ user-select: none;
 	.mobile-part{
 		padding-left:0px;
 		margin:0;
-		display:none;
 	}
-	.nav-wrapper  .mobile-part{
-		display:block;
-		
-		
+	.nav-wrapper  nav[hidden]{
+		display:block;		
 	}
 	.nav-wrapper nav:nth-child(2) {
 		margin:5px 0;
