@@ -1674,10 +1674,12 @@ section .address-contact {
 }
 
 
+/*
 #requisitos .side-nav li a.active{
 	background-color: #2980b9;
 	color:white;
 }
+*/
 
 html.no-scroll{
 	overflow:hidden;
