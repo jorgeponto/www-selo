@@ -2925,9 +2925,7 @@ p.formLegendBlue {
 	border-bottom: 0px;
 	justify-content: center;
 	display: inline-block;
-	padding: 10px;
 	width: 100%;
-	margin-left: -11px;
 }
 /* .dropdown-menu>.active>a{
 	color: #fff !important;
@@ -3084,9 +3082,6 @@ button.btn-default.cookies-btn.accept {
 		font-size:14px;
 		display: inline;
 	}
-	p.formLegendBlue span {
-		display: inline-block !important;
-	}
 }
 
 span {
@@ -3123,11 +3118,11 @@ section p > a {
 
 /* Formulário Contactos e Candidatura */
 
-p.formLegendBlue span{
-	display: inline-block !important;
-}
-
 .asterisk_sentence {
 	text-align:left;
 	padding-left:10px;
+}
+
+form {
+	margin-bottom:50px;
 }
