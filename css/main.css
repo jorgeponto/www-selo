@@ -3126,3 +3126,15 @@ section p > a {
 form {
 	margin-bottom:50px;
 }
+
+/* Botões da página dos requisitos */
+
+.table-form .info .btn_requisitos,
+.table-form .info .btn_selo {
+	font-size: initial;   
+	font-weight: normal; 
+	display: inline-block;
+	color:#fff;
+	text-decoration: none;
+	margin: 1rem 0;
+}
