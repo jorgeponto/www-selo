@@ -3129,8 +3129,14 @@ form {
 
 /* Botões da página dos requisitos */
 
-.table-form .info .btn_requisitos,
-.table-form .info .btn_selo {
+.table-form .info p.btn_requisitos,
+.table-form .info p.btn_selo {
+	display:block;
+	text-align:right;
+}
+
+.table-form .info p.btn_requisitos a,
+.table-form .info p.btn_selo a {
 	font-size: initial;   
 	font-weight: normal; 
 	display: inline-block;
