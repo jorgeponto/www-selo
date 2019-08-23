@@ -3148,6 +3148,9 @@ form {
 
 .last-update {
 	position:absolute;
-	bottom:0px;
-	padding:1em;
+	bottom:10px;
+	padding: 0;
+	text-align: center;
+	margin:0;
+	width:300px;
 }
