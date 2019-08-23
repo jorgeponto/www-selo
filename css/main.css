@@ -853,9 +853,8 @@ footer .nav ul li a{
 
 
 .content-info p{
-	font-size: 15px;
 	color:#2a2a2a;
-	line-height:1.6;
+	line-height:1.8;
 }
 .content-info.active{
 	display:inline-block;
@@ -943,8 +942,8 @@ footer .nav ul li a{
 	color:#2980b9;
 }
 .content-info > p{
-	margin-top:10px;
-	margin-bottom:10px;
+	margin-top:1em;
+	margin-bottom:1em;
 }
 .number-list{
 	counter-reset: headings;
