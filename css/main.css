@@ -881,6 +881,10 @@ footer .nav ul li a{
 	text-transform: uppercase;
 }
 
+.side-content .content-info li {
+	line-height: 1.8;
+}
+
 .content-wrapper{
 	display: table;
     position:relative;
@@ -1376,7 +1380,7 @@ header img.iconlogo{
 	 color:#2980b9;
 }
 .table-form .info p{
-	 line-height:1.4;
+	 line-height:1.8;
 }
 
 .s-app{
