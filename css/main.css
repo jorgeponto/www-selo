@@ -2488,7 +2488,7 @@ user-select: none;
 	}
 	.side-nav{
 		background-color: #f1f1f2;
-		margin-bottom:20px;
+		margin-bottom:30px;
 	}
 	.content-wrapper{
 	    margin-top:0;
@@ -2800,6 +2800,7 @@ main{
 	.side-content .content-info{
 		margin-top:15px;
 	}
+	p.last-update {position: static; margin:0; padding:0;}
 }
 
 @media print,
@@ -3062,6 +3063,7 @@ button.btn-default.cookies-btn.accept {
 	section.s-news .wrapper-content h2 {
 		top: -13px;
 	}
+	p.last-update {position: static; margin:auto auto; width:95%; padding:0;}
 }
 
 @media only screen and (min-width: 951px) {
@@ -3085,7 +3087,9 @@ button.btn-default.cookies-btn.accept {
 		font-size:14px;
 		display: inline;
 	}
+	p.last-update {position: static; margin:auto auto; width:95%; padding:0;}
 }
+
 
 span {
 	content: "\002A";
