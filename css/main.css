@@ -3087,7 +3087,17 @@ button.btn-default.cookies-btn.accept {
 		font-size:14px;
 		display: inline;
 	}
-	p.last-update {position: static; margin:auto auto; width:95%; padding:0;}
+	/* última atualização */
+	p.last-update {
+		position: static; 
+		margin:auto auto; 
+		width:95%; 
+		padding:0;
+	}
+	/* Botão de enviar dos forms - anular float:right */
+	form input[type="submit"]{
+		float:none; /* anula float:right; */
+	}
 }
 
 
