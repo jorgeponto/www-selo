@@ -3025,11 +3025,6 @@ button.btn-default.cookies-btn.accept {
 	color: #fff;
 }
 @media only screen and (min-width: 768px) {
-    div.cookies-message {
-        position: absolute;
-        top: 0;
-        height: 80px;
-    }
     div.home1 {
         height: 100vh;
     }
@@ -3046,6 +3041,16 @@ button.btn-default.cookies-btn.accept {
 		font-size: 1.5em;
 	}
 }
+
+@media only screen and (max-width: 834) {
+	    div.cookies-message {
+        position: absolute;
+        top: 0;
+        height: 120px;
+    }
+
+}
+
 @media only screen and (max-width: 950px) {
 	
 	.home-page header .header-image{
