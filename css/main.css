@@ -3097,10 +3097,11 @@ button.btn-default.cookies-btn.accept {
 	/* Botão de enviar dos forms - anular float:right */
 	form input[type="submit"]{
 		float:none; /* anula float:right; */
+		max-width: none; /* extende o botão à largura */
 	}
 	.wrapper-content form.candidatura {
-	text-align: center;
-}
+	text-align: center;	
+	}
 }
 
 
