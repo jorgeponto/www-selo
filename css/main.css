@@ -3098,6 +3098,9 @@ button.btn-default.cookies-btn.accept {
 	form input[type="submit"]{
 		float:none; /* anula float:right; */
 	}
+	.wrapper-content form.candidatura {
+	text-align: center;
+}
 }
 
 
