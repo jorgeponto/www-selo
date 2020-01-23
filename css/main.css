@@ -1,7 +1,7 @@
 html {
     color: #222;
-    font-size: 15px;
-    line-height: 1.4;
+    font-size: 16px;
+    line-height: 1.7;
 }
 
 ::-moz-selection {
@@ -222,7 +222,7 @@ header span.header-title{
 }
 #candidatura .content-info h3{
 	color:#2980b9;
-	    text-transform: uppercase;
+	text-transform: uppercase;
     font-weight: bold;
     display: inline-block;
     margin: 0;
@@ -428,7 +428,7 @@ header .nav li a {
     color: #2a2a2a;
     padding: 7px 20px;
     text-decoration: none;
-    font-size:15px;
+    font-size:16px;
     font-weight: bold;
 }
 header .nav > ul{
@@ -441,7 +441,7 @@ header .nav > ul > li > a:first-of-type{
 header .nav li a span {
     display: inline-block;
     margin-left: 5px;
-    font-size: 10px;
+    font-size: 14px;
     color: #2a2a2a;
 }
 
@@ -625,7 +625,7 @@ section.w-bg.blue > button{
 }
 section .wrapper-content p{
 	color:#2a2a2a;
-	font-size:14px;
+	font-size:16px;
 	line-height:1.7;
 	margin-bottom:25px;
 }
@@ -681,7 +681,7 @@ footer .nav ul{
 footer .nav ul li{
 	list-style: none;
 	display:table-cell;
-	font-size:13px;
+	font-size:16px;
 	text-transform: uppercase;
 	min-width: 100px;
 	vertical-align:top;
@@ -712,7 +712,7 @@ footer .nav ul li ul{
 	margin-top:10px;
 }
 footer .nav ul li ul li a{
-	font-size:12px;
+	font-size:16px;
 }
 footer .nav ul li a{
 	color:white;
@@ -733,7 +733,7 @@ footer .nav ul li a{
 	list-style: none;
 	display:table-cell;
 	width:12.5%;
-	font-size:13px;
+	font-size:14px;
 	text-transform: uppercase;
 	text-align: center;
 	
@@ -749,11 +749,11 @@ footer .nav ul li a{
 .sponsors-copy ul li a{
 	text-decoration: none;
 	color:black;
-	font-size: 13px;
+	font-size: 16px;
     font-weight: bold;
 }
 .sponsors-copy copy{
-	font-size: 15px;
+	font-size: 16px;
 	font-weight: bold;
     display: block;
     text-align: center;
@@ -803,7 +803,7 @@ footer .nav ul li a{
 	color:none;
 }
 .side-nav li {
-	font-size:14px;
+	font-size:16px;
 }
 .side-nav > nav > ul > li > a{
 	font-weight: bold;
@@ -1183,19 +1183,19 @@ a.anchor{
 }
 
 .caroussel-content.gold li span:first-of-type{
-	font-size: 14px;
+	font-size: 16px;
 	font-weight: bold;
 	color:#c29300;
 	margin:5px 0 10px 0;
 }
 .caroussel-content.silver li span:first-of-type{
-	font-size: 14px;
+	font-size: 16px;
 	font-weight: bold;
 	color:#515151;
 	margin:5px 0 10px 0;
 }
 .caroussel-content.bronze li span:first-of-type{
-	font-size: 14px;
+	font-size: 16px;
 	font-weight: bold;
 	color:#a56140;
 	margin:5px 0 10px 0;
@@ -1396,7 +1396,7 @@ form div{
     float: left;
     position:relative;
     margin-bottom: 30px;
-    font-size:15px;
+    font-size:16px;
     
 }
 form div.all-width{
@@ -1504,7 +1504,7 @@ form div.select:after{
 	display: block;
 	text-align: center;
 	margin-bottom:20px;
-	font-size:14px;
+	font-size:16px;
 }
 
 a.no-pointer{
@@ -1590,7 +1590,7 @@ section.s-contact{
 }
 section .address-contact p {
     color: #2a2a2a;
-    font-size: 14px;
+    font-size: 16px;
 	line-height: 1.7;
 	width:calc(100% - 45px);
 	margin: 0;
@@ -1779,7 +1779,7 @@ user-select: none;
 
 @media only screen and (max-width: 950px) {
 	
-	.go-to{font-size: 14px;}
+	.go-to{font-size: 16px;}
 	.grid{
 		padding:0 20px;
 	}
@@ -1910,7 +1910,7 @@ user-select: none;
     .sponsors-copy .grid div:last-of-type{
 		margin-top:10px;
 		margin-bottom:20px;
-		font-size:13px;
+		font-size:16px;
 		
 	}
     footer .bottom-nav{
@@ -2155,7 +2155,7 @@ user-select: none;
 	}
 	.mobile-part li{
 		list-style: none;
-		font-size:15px;
+		font-size:16px;
 		text-transform: uppercase;
 		padding-left:20px;
 		font-weight:bold;
@@ -2230,7 +2230,7 @@ user-select: none;
 	}
 	
 	.sub-page header span.header-title{
-		font-size:14px;
+		font-size:16px;
 		right:0;
 		text-align: left;
 		bottom: 0;
@@ -2613,7 +2613,7 @@ user-select: none;
 	header .nav li .dropdown-menu li
 
 	header .nav li a{
-		font-size:15px;
+		font-size:16px;
 	}
 
 	.nav-wrapper{
@@ -2789,13 +2789,13 @@ main{
 	header .nav li .dropdown-menu a{
 		margin-bottom:0;
 		padding:10px 0;
-		font-size: 14px;
+		font-size: 16px;
 	}
 	header .nav li .dropdown-menu{
 		padding-left:20px;
 	}
 	.nav-wrapper{
-		padding:0 15px;
+		padding:0 16px;
 	}
 	.side-content .content-info{
 		margin-top:15px;
@@ -2918,7 +2918,7 @@ header .nav li a:hover {
 p.formLegendWhite {
     display: block;
     text-align: center;
-    font-size: 14px;
+    font-size: 16px;
     color: #2980b9 !important;
 	border-bottom: 0px;
 	margin-bottom: 26px;
