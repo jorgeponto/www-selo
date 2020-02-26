@@ -390,6 +390,10 @@ body:not(#home) .head-seal:not(.fixed){
 	text-align:center
 }
 
+.side-nav .descarregar ul li a.text-left {
+	text-align:left;
+}
+
 .content-wrapper .download a{
     margin-left: 40px;
 	margin-top: 20px;
