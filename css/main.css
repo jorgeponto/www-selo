@@ -385,6 +385,10 @@ body:not(#home) .head-seal:not(.fixed){
 	padding-right:20px;
 }
 
+.side-nav .descarregar ul li {
+	margin: 0.5em 0 0 0.5em;
+}
+
 .content-wrapper .download a{
     margin-left: 40px;
 	margin-top: 20px;
