@@ -380,20 +380,6 @@ body:not(#home) .head-seal:not(.fixed){
 	padding-right:20px
 }
 
-.side-nav .descarregar img {
-	display:block; 
-	margin: auto auto
-}
-
-.side-nav .descarregar ul li a {
-	display: block; 
-	text-align:center
-}
-
-.side-nav .descarregar ul li a.text-left {
-	text-align:left;
-}
-
 .content-wrapper .download a{
     margin-left: 40px;
 	margin-top: 20px;
