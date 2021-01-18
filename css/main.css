@@ -738,6 +738,11 @@ footer .nav ul li a{
 	text-decoration: none;
 	cursor:pointer;
 }
+footer .nav ul li.firstlevel {
+	color:white;
+	font-weight: bold;
+}
+
 .sponsors-copy ul{
 	display:table;
 	width:100%;
