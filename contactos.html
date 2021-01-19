@@ -117,11 +117,11 @@
 						<form id="myForm" name="contacto" action="https://script.google.com/macros/s/AKfycbzs9gyIqrhCB9EvvLTjy6UjX0oZD3dXEa8FYQvXXrPo0EzqYpHT/exec" method="post">
 						<p class="asterisk_sentence">Os campos assinalados com * são de preenchimento obrigatório</p>
 							<div>
-								<label for="nome">Nome *</label>
+								<label for="nome">Nome <span aria-label="campo de preenchimento obrigatório" role="img">*</span></label>
 								<input aria-describedby="error-id" type="text" name="nome" id="nome" placeholder="Escreva o nome" required>
 							</div>
 							<div>
-								<label for="email">E-mail *</label>
+								<label for="email">E-mail <span aria-label="campo de preenchimento obrigatório" role="img">*</span></label>
 								<input aria-describedby="error_email error-id" type="text" pattern="[^ @]*@[^ @]*" name="email" id="email" placeholder="Escreva o e-mail" required>
 							</div>
 							<div>
@@ -133,11 +133,11 @@
 								<input aria-describedby="error-id" type="tel" name="telefone" id="telefone" placeholder="Escreva o contacto">
 							</div>
 							<div class="all-width">
-								<label for="assunto">Assunto *</label>
+								<label for="assunto">Assunto <span aria-label="campo de preenchimento obrigatório" role="img">*</span></label>
 								<input aria-describedby="error-id" type="text" name="assunto" id="assunto" placeholder="Escreva o assunto" required>
 							</div>
 							<div class="all-width">
-								<label for="Mensagem">Mensagem *</label>
+								<label for="Mensagem">Mensagem <span aria-label="campo de preenchimento obrigatório" role="img">*</span></label>
 								<textarea name="mensagem" maxlength="1000" id="Mensagem" placeholder="Escreva a sua mensagem" required></textarea>
 								<div id="info"></div>
 							</div>
@@ -333,7 +333,7 @@
 		});
 	</script>
 
-	<script id="script 5">
+	<script id="script5">
 		$(document).ready(function() {
 			if (window.location.href.indexOf("?#scroll-error") > -1) {
 				$('html, body').animate({
