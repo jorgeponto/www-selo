@@ -3229,3 +3229,11 @@ overflow: visible;
 clip: auto;
 white-space: normal;
 }
+
+/* Campos obrigatórios marcados com asterisco */
+
+form label span {
+	display:inline !important;
+}
+
+
