@@ -122,7 +122,7 @@
 		  	<div class="side-content">
 				
 			  	<div class="content-info active"  data-info="topic_2">
-					<a class="anchor" name="processocandidatura"></a>
+					<a class="anchor" id="processocandidatura"></a>
 				  	<h2>Processo de Candidatura</h2>
 				  	
 				  	<p>Para concorrer ao Selo de Usabilidade e Acessibilidade é necessário, antes de mais, que o sítio <em>Web</em> ou a aplicação móvel (<em>app</em>)<a href="https://selo.usabilidade.gov.pt/requisitos.html" title="Consultar a página de requisitos"> cumpram os requisitos do Selo</a> a que se candidata: Bronze, Prata ou Ouro.</p>
@@ -134,7 +134,7 @@
 					<p>Após confirmar as análises e evidências apresentadas, a <abbr title="Agência para a Modernização Administrativa">AMA</abbr> entrará em contacto com a entidade e, em caso afirmativo, disponibilizará o código necessário para a afixação do Selo no respetivo sítio <em>Web</em> ou <em>app</em>.</p>
 					
 				<div class="content-info" data-info="topic_3">
-					<a class="anchor" name="condicoesatribuicao"></a>
+					<a class="anchor" id="condicoesatribuicao"></a>
 				  	<h2>Condições de Atribuição e Afixação</h2>
 
 				  	<h3>Periodo de Atribuição</h3>
@@ -168,15 +168,15 @@
 						<p class="formLegendBlue">Os campos assinalados com * são de preenchimento obrigatório</p>
 						<div class="nome">
 							<label for="nome">Nome <span aria-label="campo de preenchimento obrigatório" role="img">*</span></label>
-							<input aria-describedby="error-id" type="text" name="nome" id="nome" placeholder="Escreva o nome" required>
+							<input type="text" name="nome" id="nome" placeholder="Escreva o nome" required>
 						</div>
 						<div class="email">
 							<label for="email">E-mail <span aria-label="campo de preenchimento obrigatório" role="img">*</span></label>
-							<input aria-describedby="error_email error-id" type="text" pattern="[^ @]*@[^ @]*" name="email" id="email" placeholder="Escreva o e-mail" required>
+							<input type="text" pattern="[^ @]*@[^ @]*" name="email" id="email" placeholder="Escreva o e-mail" required>
 						</div>
 						<div>
 							<label for="entidade">Entidade/Empresa</label>
-							<input aria-describedby="error-id" type="text" name="entidade" id="entidade" placeholder="Escreva a entidade/empresa">
+							<input type="text" name="entidade" id="entidade" placeholder="Escreva a entidade/empresa">
 						</div>
 						<div class="select">
 							<label for="selo">Selo a que se candidata <span aria-label="campo de preenchimento obrigatório" role="img">*</span></label>
@@ -189,11 +189,11 @@
 						</div>
 						<div class="all-width">
 							<label for="nameplace">Nome do sítio Web <span aria-label="campo de preenchimento obrigatório" role="img">*</span></label>
-							<input type="text" aria-describedby="error-id" name="nomedositio" id="nameplace" placeholder="Escreva o nome do sítio Web" required>
+							<input type="text" name="nomedositio" id="nameplace" placeholder="Escreva o nome do sítio Web" required>
 						</div>
 						<div class="all-width address">
 							<label for="enderecositio">Endereço do sítio Web <span aria-label="campo de preenchimento obrigatório" role="img">*</span></label>
-							<input aria-describedby="error_url error-id" type="url" name="enderecodositio" id="enderecositio" placeholder="Escreva o endereço do sítio Web (URL)" required>
+							<input type="url" name="enderecodositio" id="enderecositio" placeholder="Escreva o endereço do sítio Web (URL)" required>
 						</div>
 						<input type="submit" id="mySubmit" class="button-submit" value="Enviar">
 					</form>
