@@ -86,6 +86,7 @@ function goBack(){
             document.getElementById("backArrow").style.visibility = "hidden";
             document.getElementById("footer_ama").style.position = "absolute";
             divAtual = "0";
+            document.getElementById("breadcrumb_formulario").style.display = "none";
         }
         
 
@@ -102,6 +103,7 @@ function goBack(){
 
         document.getElementById("footer_ama").style.position = "unset";
         divAtual = "1";
+        document.getElementById("breadcrumb_checklist").style.display = "none";
         getProgressChecklists();
 
     } else if(divAtual == "3"){
@@ -109,8 +111,83 @@ function goBack(){
         document.getElementById("checklist_selected").style.display = "block"; //mostra camada 2
 
         document.getElementById("footer_ama").style.position = "unset";
+        document.getElementById("breadcrumb_requisito").style.display = "none";
         divAtual = "2";
     } 
+}
+
+function clickBreadcumb(breadcrumbName){
+    if(breadcrumbName === 'home'){
+        var r = confirm("Deseja mesmo sair? Se clicar aqui vai perder todo o progresso, grave antes a sua avaliação." 
+                        + "\n Clique 'OK' para saír."
+                        + "\n Clique 'CANCEL' para permanecer na página.");
+        if (r == true) {
+            window.location.href = "https://selo.usabilidade.gov.pt/";
+        }
+    }else if(breadcrumbName === 'listas'){
+        if(divAtual === "1"){
+            goBack();
+        }else if(divAtual === "2"){
+            var r = confirm("Deseja mesmo sair? Se clicar aqui vai perder todo o progresso, grave antes a sua avaliação." 
+                        + "\n Clique 'OK' para saír."
+                        + "\n Clique 'CANCEL' para permanecer na página.");
+            if (r == true) {
+
+                document.getElementById("checklist_selected").style.display = "none"; //esconde camada 2
+                document.getElementById("inicial").style.display = "block"; //mostra camada 0
+                //esconde progresso, conformidade e navegação
+                document.getElementById("NAV_10_asp_func").style.display = "none";
+                document.getElementById("divProgressBar_NAV_10_asp_func").style.display = "none";
+                document.getElementById("NAV_conteudo").style.display = "none";
+                document.getElementById("divProgressBar_NAV_conteudo").style.display = "none";
+                document.getElementById("NAV_transacao").style.display = "none";
+                document.getElementById("divProgressBar_NAV_transacao").style.display = "none";
+
+                document.getElementById("breadcrumb_checklist").style.display = "none";
+                document.getElementById("breadcrumb_formulario").style.display = "none";
+
+                document.getElementById("backArrow").style.visibility = "hidden";
+                document.getElementById("footer_ama").style.position = "absolute";
+                divAtual = "0";
+            }
+        }else if(divAtual === "3"){
+            var r = confirm("Deseja mesmo sair? Se clicar aqui vai perder todo o progresso, grave antes a sua avaliação." 
+                        + "\n Clique 'OK' para saír."
+                        + "\n Clique 'CANCEL' para permanecer na página.");
+            if (r == true) {
+
+                document.getElementById("subtitle_selected").style.display = "none"; //esconde camada 3
+                document.getElementById("inicial").style.display = "block"; //mostra camada 0
+                //esconde progresso, conformidade e navegação
+                document.getElementById("NAV_10_asp_func").style.display = "none";
+                document.getElementById("divProgressBar_NAV_10_asp_func").style.display = "none";
+                document.getElementById("NAV_conteudo").style.display = "none";
+                document.getElementById("divProgressBar_NAV_conteudo").style.display = "none";
+                document.getElementById("NAV_transacao").style.display = "none";
+                document.getElementById("divProgressBar_NAV_transacao").style.display = "none";
+
+                document.getElementById("breadcrumb_checklist").style.display = "none";
+                document.getElementById("breadcrumb_formulario").style.display = "none";
+                document.getElementById("breadcrumb_requisito").style.display = "none";
+
+                document.getElementById("backArrow").style.visibility = "hidden";
+                document.getElementById("footer_ama").style.position = "absolute";
+                divAtual = "0";
+            }
+
+        }
+    }else if(breadcrumbName === 'formulario'){
+       if(divAtual === "2"){
+            goBack();
+        }else if(divAtual === "3"){
+            goBack();
+            goBack();
+        }
+    }else if(breadcrumbName === 'checklist'){
+        if(divAtual === "3"){
+            goBack();
+        }
+    }
 }
 
 //auxiliar
@@ -149,55 +226,113 @@ function getProgressChecklists(){
 
     if(Object.keys(mapCheckboxes_10_asp_func).length == 0 ){
         document.getElementById("progress_10_asp_func").innerHTML = "Progresso: 0/24";
-        document.getElementById("conformidade_10_asp_func").innerHTML = "Conformidade: 0/24";
+        document.getElementById("conformidade_10_asp_func").innerHTML = "Conformidade: 0/24 (0%)";
     }else {
         var res = getProgressAndConformidadeAux(mapCheckboxes_10_asp_func, "10_asp_func");
         if(res.respondidas == 0 ){
 
             document.getElementById("progress_10_asp_func").innerHTML = "Progresso: 0/24";
-            document.getElementById("conformidade_10_asp_func").innerHTML = "Conformidade: 0/24";
+            document.getElementById("conformidade_10_asp_func").innerHTML = "Conformidade: 0/24 (0%)";
             
         }else{
             document.getElementById("progress_10_asp_func").innerHTML = "Progresso: "+ res.respondidas + "/24";
-            document.getElementById("conformidade_10_asp_func").innerHTML = "Conformidade: " + res.numeroSim + "/" + res.totalChecks;
+            var perc = ((res.numeroSim / res.totalChecks) * 100).toFixed(1);
+            document.getElementById("conformidade_10_asp_func").innerHTML = "Conformidade: " + res.numeroSim + "/" + res.totalChecks + " ("+ perc + "%)";
         }
         
     }
 
-
     if(Object.keys(mapCheckboxes_conteudo).length == 0 ){
         document.getElementById("progress_conteudo").innerHTML = "Progresso: 0/17";
-        document.getElementById("conformidade_conteudo").innerHTML = "Conformidade: 0/17";
+        document.getElementById("conformidade_conteudo").innerHTML = "Conformidade: 0/17 (0%)";
     }else {
         var res = getProgressAndConformidadeAux(mapCheckboxes_conteudo, "conteudo");
         if(res.respondidas == 0 ){
             document.getElementById("progress_conteudo").innerHTML = "Progresso: 0/17";
-            document.getElementById("conformidade_conteudo").innerHTML = "Conformidade: 0/17";
+            document.getElementById("conformidade_conteudo").innerHTML = "Conformidade: 0/17 (0%)";
             
         }else{
             document.getElementById("progress_conteudo").innerHTML = "Progresso: "+ res.respondidas + "/17";
-        document.getElementById("conformidade_conteudo").innerHTML = "Conformidade: " + res.numeroSim + "/" + res.totalChecks;
+            var perc = ((res.numeroSim / res.totalChecks) * 100).toFixed(1);
+            document.getElementById("conformidade_conteudo").innerHTML = "Conformidade: " + res.numeroSim + "/" + res.totalChecks + " ("+ perc + "%)";
         }
         
     }
 
     if(Object.keys(mapCheckboxes_transacao).length == 0  ){
         document.getElementById("progress_transacao").innerHTML = "Progresso: 0/13";
-        document.getElementById("conformidade_transacao").innerHTML = "Conformidade: 0/13";
+        document.getElementById("conformidade_transacao").innerHTML = "Conformidade: 0/13 (0%)";
     }else {
         var res = getProgressAndConformidadeAux(mapCheckboxes_transacao, "transacao");
 
         if(res.respondidas == 0 ){
             document.getElementById("progress_transacao").innerHTML = "Progresso: 0/13";
-            document.getElementById("conformidade_transacao").innerHTML = "Conformidade: 0/13";
+            document.getElementById("conformidade_transacao").innerHTML = "Conformidade: 0/13 (0%)";
             
         }else{
             document.getElementById("progress_transacao").innerHTML = "Progresso: "+ res.respondidas + "/13";
-            document.getElementById("conformidade_transacao").innerHTML = "Conformidade: " + res.numeroSim + "/" + res.totalChecks;
+            var perc = ((res.numeroSim / res.totalChecks) * 100).toFixed(1);
+            document.getElementById("conformidade_transacao").innerHTML = "Conformidade: " + res.numeroSim + "/" + res.totalChecks + " ("+ perc + "%)";
         }
         
     }
+}
 
+function getProgressoConformidadeChecklistSelected(nomeChecklist){
+
+    if(nomeChecklist == "10_asp_func"){
+        if(Object.keys(mapCheckboxes_10_asp_func).length == 0 ){
+            document.getElementById("progresso_checklist_selected").innerHTML = "Progresso: 0/24";
+            document.getElementById("conformidade_checklist_selected").innerHTML = "Conformidade: 0/24 (0%)";
+        }else {
+            var res = getProgressAndConformidadeAux(mapCheckboxes_10_asp_func, "10_asp_func");
+            if(res.respondidas == 0 ){
+    
+                document.getElementById("progresso_checklist_selected").innerHTML = "Progresso: 0/24";
+                document.getElementById("conformidade_checklist_selected").innerHTML = "Conformidade: 0/24 (0%)";
+                
+            }else{
+                document.getElementById("progresso_checklist_selected").innerHTML = "Progresso: "+ res.respondidas + "/24";
+                var perc = ((res.numeroSim / res.totalChecks) * 100).toFixed(1);
+                document.getElementById("conformidade_checklist_selected").innerHTML = "Conformidade: " + res.numeroSim + "/" + res.totalChecks + " ("+ perc + "%)";
+            }
+            
+        }
+    }else if(nomeChecklist == "conteudo"){
+        if(Object.keys(mapCheckboxes_conteudo).length == 0 ){
+            document.getElementById("progresso_checklist_selected").innerHTML = "Progresso: 0/17";
+            document.getElementById("conformidade_checklist_selected").innerHTML = "Conformidade: 0/17 (0%)";
+        }else {
+            var res = getProgressAndConformidadeAux(mapCheckboxes_conteudo, "conteudo");
+            if(res.respondidas == 0 ){
+                document.getElementById("progresso_checklist_selected").innerHTML = "Progresso: 0/17";
+                document.getElementById("conformidade_checklist_selected").innerHTML = "Conformidade: 0/17 (0%)";
+                
+            }else{
+                document.getElementById("progresso_checklist_selected").innerHTML = "Progresso: "+ res.respondidas + "/17";
+                var perc = ((res.numeroSim / res.totalChecks) * 100).toFixed(1);
+                document.getElementById("conformidade_checklist_selected").innerHTML = "Conformidade: " + res.numeroSim + "/" + res.totalChecks + " ("+ perc + "%)";
+            }
+        }
+    }else if(nomeChecklist == "transacao"){
+        if(Object.keys(mapCheckboxes_transacao).length == 0  ){
+            document.getElementById("progresso_checklist_selected").innerHTML = "Progresso: 0/13";
+            document.getElementById("conformidade_checklist_selected").innerHTML = "Conformidade: 0/13 (0%)";
+        }else {
+            var res = getProgressAndConformidadeAux(mapCheckboxes_transacao, "transacao");
+    
+            if(res.respondidas == 0 ){
+                document.getElementById("progresso_checklist_selected").innerHTML = "Progresso: 0/13";
+                document.getElementById("conformidade_checklist_selected").innerHTML = "Conformidade: 0/13 (0%)";
+                
+            }else{
+                document.getElementById("progresso_checklist_selected").innerHTML = "Progresso: "+ res.respondidas + "/13";
+                var perc = ((res.numeroSim / res.totalChecks) * 100).toFixed(1);
+                document.getElementById("conformidade_checklist_selected").innerHTML = "Conformidade: " + res.numeroSim + "/" + res.totalChecks + " ("+ perc + "%)";
+            }
+            
+        }
+    }
 
 }
 
@@ -206,17 +341,18 @@ function getProgressAndConformidadeBar(map, nomeChecklist, totalChecks){
 
     if(Object.keys(map).length == 0 ){
         document.getElementById("progressoInfo_NAV_" + nomeChecklist).innerHTML = "Progresso: 0/" + totalChecks;
-        document.getElementById("conformidadeInfo_NAV_" + nomeChecklist).innerHTML = "Conformidade: 0/" + totalChecks;
+        document.getElementById("conformidadeInfo_NAV_" + nomeChecklist).innerHTML = "Conformidade: 0/" + totalChecks + " (0%)";
     }else {
         var res = getProgressAndConformidadeAux(map, nomeChecklist);
         if(res.respondidas == 0 ){
 
             document.getElementById("progressoInfo_NAV_" + nomeChecklist).innerHTML = "Progresso: 0/" + totalChecks;
-            document.getElementById("conformidadeInfo_NAV_" + nomeChecklist).innerHTML = "Conformidade: 0/" + totalChecks;
+            document.getElementById("conformidadeInfo_NAV_" + nomeChecklist).innerHTML = "Conformidade: 0/" + totalChecks + " (0%)";
             
         }else{
             document.getElementById("progressoInfo_NAV_" + nomeChecklist).innerHTML = "Progresso: "+ res.respondidas + "/" + totalChecks;
-            document.getElementById("conformidadeInfo_NAV_" + nomeChecklist).innerHTML = "Conformidade: " + res.numeroSim + "/" + res.totalChecks;
+            var perc = ((res.numeroSim / res.totalChecks) * 100).toFixed(1);
+            document.getElementById("conformidadeInfo_NAV_" + nomeChecklist).innerHTML = "Conformidade: " + res.numeroSim + "/" + res.totalChecks + " ("+ perc + "%)";
         }
     }
 
@@ -260,6 +396,12 @@ function comecarNovaAvaliacao(){
     document.getElementById("chooseChecklist").style.display = "block"; //mostra camada 1
     document.getElementById("backArrow").style.visibility = "visible"; //mostra a seta de voltar para trás
     document.getElementById("footer_ama").style.position = "unset";
+
+    //criar breadcrumb para o formulário
+    var aTag = document.getElementById('anchor_formulario');
+    var breadcrumb = document.getElementById("breadcrumb_formulario");
+    aTag.innerText = "Formulário";
+    breadcrumb.style.display = "block";
 
     //designacao sitio web 
     $("#designacaoWebsite").val('');
@@ -429,6 +571,12 @@ function avancarCarregamento(){
 
     divAtual = "1";
 
+    //criar breadcrumb do formulário
+    var aTag = document.getElementById('anchor_formulario');
+    var breadcrumb = document.getElementById("breadcrumb_formulario");
+    aTag.innerText = "Formulário";
+    breadcrumb.style.display = "block";
+
     getProgressChecklists();
 
 }
@@ -440,9 +588,11 @@ function avancarCarregamento(){
 
  //botão de escolha de cada checklist
 function openChecklist(nomeChecklist){
-    divAtual = 2;
+    divAtual = "2";
+    var breadcrumbChecklist = '';
     if(nomeChecklist == "10_asp_func"){
         checklistCarregada = "10_asp_func"; //var global
+        breadcrumbChecklist = "Checklist 10 Aspetos Funcionais";
         //preencheMaps();
         //document.getElementById("chooseChecklist").style.display = "none"; //esconde camada 1
         //document.getElementById("checklist_selected").style.display = "block"; //mostra camada 2
@@ -453,7 +603,8 @@ function openChecklist(nomeChecklist){
 
 
     }else if(nomeChecklist == "conteudo"){
-        checklistCarregada = "conteudo"; //var global
+        checklistCarregada = "conteudo"; //var global\
+        breadcrumbChecklist = "Checklist Conteúdo";
         //preencheMaps();
         //document.getElementById("chooseChecklist").style.display = "none"; //esconde camada 1
         //document.getElementById("checklist_selected").style.display = "block"; //mostra camada 2
@@ -464,6 +615,7 @@ function openChecklist(nomeChecklist){
 
     }else if(nomeChecklist == "transacao"){
         checklistCarregada = "transacao"; //var global
+        breadcrumbChecklist = "Checklist Transação";
         //preencheMaps();
         //document.getElementById("chooseChecklist").style.display = "none"; //esconde camada 1
         //document.getElementById("checklist_selected").style.display = "block"; //mostra camada 2
@@ -472,7 +624,16 @@ function openChecklist(nomeChecklist){
         document.getElementById("titulo_checklist").innerHTML = "Transação";
         getProgressAndConformidadeBar(mapCheckboxes_transacao, "transacao", "13");
     }
+
+    //criar breadcrumb para o checklist
+    var aTag = document.getElementById('anchor_checklist');
+    var breadcrumb = document.getElementById("breadcrumb_checklist");
+    aTag.innerText = breadcrumbChecklist;
+    breadcrumb.style.display = "block";
+    document.getElementById("breadcrumb_requisito").style.display = "none";
+
     preencheMaps();
+    getProgressoConformidadeChecklistSelected(nomeChecklist);
     document.getElementById("chooseChecklist").style.display = "none"; //esconde camada 1
     document.getElementById("checklist_selected").style.display = "block"; //mostra camada 2
     preencherListas();
@@ -552,7 +713,6 @@ function preencheMaps (){
         mapDescricao.set("9.1", "A página não deve apresentar erros de sintaxe de (x)HTML.");
         mapDescricao.set("10.1", "Os ficheiros PDF devem ter o seu texto inteiramente extraível para que se possa passar o respetivo conteúdo para um processador de texto sem perda de informação.");
     
-
     }else if(checklistCarregada == "conteudo"){
         //document.title = "Conteúdo";
         //document.getElementById("titulo_checklist").innerHTML = "Conteúdo";
@@ -701,22 +861,22 @@ function preencherListas(){
                 if(mapCheckboxes != null){ //se o dicionario nao estiver a null (não é a primeira vez)
                     if(mapCheckboxes[st[0]] != null){ //se o subtitulo atual jáh tem resposta na checkbox
                         if(mapCheckboxes[st[0]] == 'S'){
-                            html += '<td style="width:25px; padding-left:20px;"> '+'<input type="text" value="S" style="width:30px; text-align:center; background-color:#90EE90;" id="'+ idResposta +'" disabled="true" name="option"/> </td>';
+                            html += '<td style="width:25px; padding-left:20px;"> '+'<input type="text" value="S" style="width:30px; text-align:center; background-color:#90EE90;" id="'+ idResposta +'" disabled name="option"/> </td>';
                         }else if(mapCheckboxes[st[0]] == 'N'){
-                            html += '<td style="width:25px; padding-left:20px;"> '+'<input type="text" value="N" style="width:30px; text-align:center; background-color:#FA8072;" id="'+ idResposta +'" disabled="true" name="option"/> </td>';
+                            html += '<td style="width:25px; padding-left:20px;"> '+'<input type="text" value="N" style="width:30px; text-align:center; background-color:#FA8072;" id="'+ idResposta +'" disabled name="option"/> </td>';
                         }else if(mapCheckboxes[st[0]] == 'NA'){
-                            html += '<td style="width:25px; padding-left:20px;"> '+'<input type="text" value="NA" style="width:30px; text-align:center; background-color:#BEBEBE" id="'+ idResposta +'" disabled="true" name="option"/> </td>';
+                            html += '<td style="width:25px; padding-left:20px;"> '+'<input type="text" value="NA" style="width:30px; text-align:center; background-color:#BEBEBE" id="'+ idResposta +'" disabled name="option"/> </td>';
                         }else if(mapCheckboxes[st[0]] === 'NR' && mapNotas[st[0]].includes("NECESSITA DE VERIFICAÇÃO HUMANA") ){
-                            html += '<td style="width:25px; padding-left:20px;"> '+'<input type="text" value="V" style="width:30px; text-align:center; background-color:#FFFF66;" id="'+ idResposta +'" disabled="true" name="option"/> </td>';
+                            html += '<td style="width:25px; padding-left:20px;"> '+'<input type="text" value="V" style="width:30px; text-align:center; background-color:#FFFF66;" id="'+ idResposta +'" disabled name="option"/> </td>';
                         }else{ //se não tem resposta poe NR
-                            html += '<td style="width:25px; padding-left:20px;"> '+'<input type="text" value="NR" style="width:30px; text-align:center; background-color:#FFFFFF;" id="'+ idResposta +'" disabled="true" name="option"/> </td>';
+                            html += '<td style="width:25px; padding-left:20px;"> '+'<input type="text" value="NR" style="width:30px; text-align:center; background-color:#FFFFFF;" id="'+ idResposta +'" disabled name="option"/> </td>';
                         }
                         //html += '<td style=width:25px;> '+'&nbsp'+'&nbsp'+'&nbsp'+'&nbsp'+'<input type="text" value="'+mapCheckboxes[st[0]]+'" style="width:30px; text-align:center;" id="'+ idResposta +'" disabled="true" name="option"/> </td>';
                     }else{ //se não tem resposta nem nota de ação HUMANA poe NR
-                        html += '<td style="width:25px; padding-left:20px;"> '+'<input type="text" value="NR" style="width:30px; text-align:center; background-color:#FFFFFF;" id="'+ idResposta +'" disabled="true" name="option"/> </td>';
+                        html += '<td style="width:25px; padding-left:20px;"> '+'<input type="text" value="NR" style="width:30px; text-align:center; background-color:#FFFFFF;" id="'+ idResposta +'" disabled name="option"/> </td>';
                     }
                 }else{ //eh a primeira vez, o dicionario estah a null, poe 'NR'
-                    html += '<td style="width:25px; padding-left:20px;"> '+'<input type="text" value="NR" style="width:30px; text-align:center; background-color:#FFFFFF;" id="'+ idResposta +'" disabled="true" name="option"/> </td>';
+                    html += '<td style="width:25px; padding-left:20px;"> '+'<input type="text" value="NR" style="width:30px; text-align:center; background-color:#FFFFFF;" id="'+ idResposta +'" disabled name="option"/> </td>';
                 
                 }
                 
@@ -957,6 +1117,12 @@ function openSubtitle(obj){
     subtitulo = sub;
     desc = descricao;
 
+    //criar breadcrumb para o subtitulo/requisito
+    var aTag = document.getElementById('anchor_requisito');
+    var breadcrumb = document.getElementById("breadcrumb_requisito");
+    aTag.innerText = "Requisito " + numSubtitulo;
+    breadcrumb.style.display = "block";
+
     //preenche titulo
     var htmlTitulo = '<h1 id="h1_subtitulo_checklist" style="color:black; font-size: 18px; top: unset; position: unset;">'+ numSubtitulo+" "+subtitulo + '</h1>'
     document.getElementById("subtitulo").innerHTML = htmlTitulo;
@@ -1047,6 +1213,8 @@ function openSubtitle(obj){
     document.getElementById('fileListChecklist').innerHTML="";
     document.getElementById('filesUploadedChecklist').value="";
 
+    
+    document.getElementById('tableRecursos').innerHTML="";
     //limpar listas que guardam imagens uploaded e lista de removidas
     listRemovedImages = [];
     listaUploadedImgObj = [];
@@ -1062,38 +1230,74 @@ function openSubtitle(obj){
     var recursosList = document.getElementById('recursosList');
     if (typeof mapRecursos !== 'undefined' && mapRecursos !== null){
         //if(mapImagens[numSubtitulo] != null){
-            var table = document.getElementById('tableRecursos');
-            $("#tableRecursos tr").remove(); 
+            var list = document.getElementById('tableRecursos');
+            //$("#tableRecursos tr").remove(); 
             //table.id = "tableRecursos";
             for(var i in mapRecursos[numSubtitulo]){
-               
+
                 var idRec = mapRecursos[numSubtitulo][i].identifier;
                 var url = mapRecursos[numSubtitulo][i].url;
 
-                var tr = document.createElement('tr');
-                var td_url = document.createElement('td');
+                var li = document.createElement('li');
+                li.id  = idRec; 
+
+
+
+
+                //CODIGO TESTE
+                var span_link = document.createElement('a');        
+
+                span_link.innerHTML=url;
+                span_link.id  = idRec;
+
+                span_link.style.cursor = "pointer";
+                span_link.href = url;
+                span_link.target="blank"
+                span_link.onmouseover = function() { $(this).css('text-decoration', 'underline'); };
+                span_link.onmouseleave = function() { $(this).css('text-decoration', 'none'); };
+
+                var span_remove = document.createElement('button');
+                span_remove.style.marginLeft = "10px";
+                span_remove.style.backgroundColor= "unset"
+                span_remove.style.minWidth= "unset"
+                span_remove.style.padding= "unset"
+                span_remove.id  = idRec; 
+                span_remove.classList.add('fa');
+                span_remove.classList.add('fa-close');
+                span_remove.onmouseover = function() { $(this).css('color', 'red'); };
+                span_remove.onmouseleave = function() { $(this).css('color', 'black'); };
+                span_remove.onclick = function() { deleteUrl(this); };
+                //
+
+
+
+    
+                /*
+                var span_link = document.createElement('span');
+                span_link.innerHTML=url;
+                span_link.id  = idRec;
+
+                span_link.style.cursor = "pointer";
+                span_link.onclick = function() { openUrl(this); };
+                span_link.onmouseover = function() { $(this).css('text-decoration', 'underline'); };
+                span_link.onmouseleave = function() { $(this).css('text-decoration', 'none'); };
+
+
+                var span_remove = document.createElement('span');
+                span_remove.style.cursor = "pointer";
+                span_remove.style.marginLeft = "10px";
+                span_remove.id  = idRec; 
+                span_remove.classList.add('fa');
+                span_remove.classList.add('fa-close');
+                span_remove.onmouseover = function() { $(this).css('color', 'red'); };
+                span_remove.onmouseleave = function() { $(this).css('color', 'black'); };
+                span_remove.onclick = function() { deleteUrl(this); };
+                */
                 
-                tr.style.cursor = "pointer";
-                tr.id  = idRec; 
-
-                td_url.innerHTML=url;
-                td_url.id  = idRec;
-                td_url.onclick = function() { openUrl(this); };
-                td_url.onmouseover = function() { $(this).css('text-decoration', 'underline'); };
-                td_url.onmouseleave = function() { $(this).css('text-decoration', 'none'); };
-
-
-                var td_remove = document.createElement('td');
-                td_remove.id  = idRec; 
-                td_remove.classList.add('fa');
-                td_remove.classList.add('fa-close');
-                td_remove.onmouseover = function() { $(this).css('color', 'red'); };
-                td_remove.onmouseleave = function() { $(this).css('color', 'black'); };
-                td_remove.onclick = function() { deleteUrl(this); };
-                
-                tr.appendChild(td_url);
-                tr.appendChild(td_remove);
-                table.appendChild(tr);
+                //li.appendChild(td_url);
+                li.appendChild(span_link);
+                li.appendChild(span_remove);
+                list.appendChild(li);
                 
             }
             //recursosList.appendChild(table);
@@ -1105,47 +1309,54 @@ function openSubtitle(obj){
     var fileList = document.getElementById('fileListChecklist');
     if (typeof mapImagens !== 'undefined' && mapImagens !== null){
         if(mapImagens[numSubtitulo] != null){
-            var table = document.createElement('table');
-            table.id = "tableImages";
+            //var list = document.getElementById('tableImages');
+            var list = document.createElement("ul");
+            list.id = "tableImages";
+            list.style.listStyle = "none";
+            list.style["padding-left"] = "0px";
             //var table = document.getElementById('tableImages');
             //$("#tableImages tr").remove(); 
             for(i in mapImagens[numSubtitulo]){
                
                 var idImg = mapImagens[numSubtitulo][i].identifier;
 
-                var tr = document.createElement('tr');
-                var td_image = document.createElement('td');
+                var li = document.createElement('li');
+                var span_link = document.createElement('span');
+                //var td_image = document.createElement('td');
                 
-                
-                tr.style.cursor = "pointer";
-                tr.id  = idImg; 
+                li.id  = idImg; 
 
-                td_image.innerHTML=mapImagens[numSubtitulo][i].photoName;
-                td_image.id  = idImg;
-                td_image.onclick = function() { showImage(this); };
-                td_image.onmouseover = function() { $(this).css('text-decoration', 'underline'); };
-                td_image.onmouseleave = function() { $(this).css('text-decoration', 'none'); };
+                span_link.innerHTML=mapImagens[numSubtitulo][i].photoName;
+                span_link.id  = idImg;
 
-                var td_remove = document.createElement('td');
-                td_remove.id  = idImg; 
-                td_remove.classList.add('fa');
-                td_remove.classList.add('fa-close');
-                td_remove.onmouseover = function() { $(this).css('color', 'red'); };
-                td_remove.onmouseleave = function() { $(this).css('color', 'black'); };
-                td_remove.onclick = function() { removeImage(this); };
+                span_link.style.cursor = "pointer";
+                span_link.onclick = function() { showImage(this); };
+                span_link.onmouseover = function() { $(this).css('text-decoration', 'underline'); };
+                span_link.onmouseleave = function() { $(this).css('text-decoration', 'none'); };
+
+                var span_remove = document.createElement('span');
+                span_remove.style.cursor = "pointer";
+                span_remove.style.marginLeft = "10px";
+                span_remove.id  = idImg; 
+                span_remove.classList.add('fa');
+                span_remove.classList.add('fa-close');
+                span_remove.onmouseover = function() { $(this).css('color', 'red'); };
+                span_remove.onmouseleave = function() { $(this).css('color', 'black'); };
+                span_remove.onclick = function() { removeImage(this); };
                 
-                tr.appendChild(td_image);
-                tr.appendChild(td_remove);
-                table.appendChild(tr);
+                //tr.appendChild(td_image);
+                li.appendChild(span_link);
+                li.appendChild(span_remove);
+                list.appendChild(li);
                 
             }
-            fileList.appendChild(table);
+            fileList.appendChild(list);
 
         }
     }
 
     
-    divAtual = 3;
+    divAtual = "3";
     document.getElementById("checklist_selected").style.display = "none"; //esconde camada 2
     document.getElementById("subtitle_selected").style.display = "block"; //mostra camada 3
 
@@ -1297,14 +1508,6 @@ function exportRelatorioHTML(){
         htmlCode += '</details>';
         htmlCode += '<br><br><br>';
     }
-    
-    
-    
-
-
-
-
-
     htmlCode+='</body></html>';
 
 
@@ -1323,10 +1526,12 @@ function expandirLegenda (){
         document.getElementById("legenda_div").style.display = "block";
         document.getElementById("expandir_legenda").classList.remove("fa-plus");
         document.getElementById("expandir_legenda").classList.add("fa-minus");
+        document.getElementById("legenda_anchor").setAttribute('aria-label', "Comprimir legenda");
     }else{
         document.getElementById("legenda_div").style.display = "none";
         document.getElementById("expandir_legenda").classList.remove("fa-minus");
         document.getElementById("expandir_legenda").classList.add("fa-plus");
+        document.getElementById("legenda_anchor").setAttribute('aria-label', "Expandir legenda");
     }
 }
 
@@ -1449,10 +1654,14 @@ function okFunction(){
     }
     
 
-    divAtual = 2;
+    divAtual = "2";
     preencherListas();
+    getProgressoConformidadeChecklistSelected(checklistCarregada);
     document.getElementById("subtitle_selected").style.display = "none"; //esconde camada 3
     document.getElementById("checklist_selected").style.display = "block"; //mostra camada 2
+
+    //esconde ultimo breadcrumb
+    document.getElementById("breadcrumb_requisito").style.display="none";
 
     listRemovedImages = []; 
     listaUploadedImgObj = [];
@@ -1460,7 +1669,7 @@ function okFunction(){
     listaUploadedRecursosObj = [];
     listRemovedRecursos = [];
 
-  }
+}
 
 
 
@@ -1483,29 +1692,66 @@ function okFunction(){
 
         //criar a tabela de recursos depois de upload
         var table = document.getElementById('tableRecursos');
-        var tr = document.createElement('tr');
-        var td_url = document.createElement('td');          
-        
-        tr.style.cursor = "pointer";
-        tr.id  = _lastGenIdRecursos; 
+        var li = document.createElement('li');
 
-        td_url.innerHTML=url;
-        td_url.id  = _lastGenIdRecursos;
-        td_url.onclick = function() { openUrl(this); };
-        td_url.onmouseover = function() { $(this).css('text-decoration', 'underline'); };
-        td_url.onmouseleave = function() { $(this).css('text-decoration', 'none'); };
+        li.id  = _lastGenIdRecursos; 
 
-        var td_remove = document.createElement('td');
-        td_remove.id  = _lastGenIdRecursos; 
-        td_remove.classList.add('fa');
-        td_remove.classList.add('fa-close');
-        td_remove.onmouseover = function() { $(this).css('color', 'red'); };
-        td_remove.onmouseleave = function() { $(this).css('color', 'black'); };
-        td_remove.onclick = function() { deleteUrl(this); };
-        
-        tr.appendChild(td_url);
-        tr.appendChild(td_remove);
-        table.appendChild(tr);
+
+        //CODIGO TESTE
+        var span_link = document.createElement('a');        
+
+        span_link.innerHTML=url;
+        span_link.id  = _lastGenIdRecursos;
+
+        span_link.style.cursor = "pointer";
+        span_link.href = url;
+        span_link.target="blank"
+        span_link.onmouseover = function() { $(this).css('text-decoration', 'underline'); };
+        span_link.onmouseleave = function() { $(this).css('text-decoration', 'none'); };
+
+        var span_remove = document.createElement('button');
+        span_remove.style.marginLeft = "10px";
+        span_remove.style.backgroundColor= "unset"
+        span_remove.style.minWidth= "unset"
+        span_remove.style.padding= "unset"
+        span_remove.id  = _lastGenIdRecursos; 
+        span_remove.classList.add('fa');
+        span_remove.classList.add('fa-close');
+        span_remove.onmouseover = function() { $(this).css('color', 'red'); };
+        span_remove.onmouseleave = function() { $(this).css('color', 'black'); };
+        span_remove.onclick = function() { deleteUrl(this); };
+        //
+
+
+
+        /*
+        var spanLink = document.createElement('span');
+        //var td_url = document.createElement('td');          
+
+        spanLink.innerHTML=url;
+        spanLink.id  = _lastGenIdRecursos;
+
+        spanLink.style.cursor = "pointer";
+        spanLink.onclick = function() { openUrl(this); };
+        spanLink.onmouseover = function() { $(this).css('text-decoration', 'underline'); };
+        spanLink.onmouseleave = function() { $(this).css('text-decoration', 'none'); };
+
+        var span_remove = document.createElement('span');
+        span_remove.style.cursor = "pointer";
+        span_remove.style.marginLeft = "10px";
+        span_remove.id  = _lastGenIdRecursos; 
+        span_remove.classList.add('fa');
+        span_remove.classList.add('fa-close');
+        span_remove.onmouseover = function() { $(this).css('color', 'red'); };
+        span_remove.onmouseleave = function() { $(this).css('color', 'black'); };
+        span_remove.onclick = function() { deleteUrl(this); };
+        */
+
+
+        //li.appendChild(td_url);
+        li.appendChild(span_link);
+        li.appendChild(span_remove);
+        table.appendChild(li);
 
         _lastGenIdRecursos++;
         document.getElementById("recursosInternet_textArea").value = '';
@@ -1522,8 +1768,15 @@ function okFunction(){
   
   var listRemovedRecursos = [];
   function deleteUrl(td){
+    var childs = $(document.getElementById("tableRecursos")).children();
 
-    document.getElementById('tableRecursos').deleteRow(td.parentNode.rowIndex);
+    for(var i=0; i<childs.length; i++ ) {
+        if(childs[i].id == td.id){
+            document.getElementById('tableRecursos').removeChild(childs[i]);
+            break;
+        }
+    }
+
     listRemovedRecursos.push(td.id); 
 
   }
@@ -1572,7 +1825,7 @@ function updateList(){
     var table = document.getElementById('tableImages');
 
     if(table == null){
-        table = document.createElement('table');
+        table = document.createElement('ul');
         table.id = 'tableImages';
     }
     
@@ -1695,8 +1948,15 @@ function showImage(td){
 
 var listRemovedImages = [];
 function removeImage(td){
+    var childs = $(document.getElementById("tableImages")).children();
 
-    document.getElementById('tableImages').deleteRow(td.parentNode.rowIndex);
+    for(var i=0; i<childs.length; i++ ) {
+        if(childs[i].id == td.id){
+            document.getElementById('tableImages').removeChild(childs[i]);
+            break;
+        }
+    }
+
     listRemovedImages.push(td.id); 
 
 }
@@ -1824,30 +2084,37 @@ function getBase64(file) {
 
 
             //criar a tabela de imagens depois de upload
-            var table = document.getElementById('tableImages');
-            var tr = document.createElement('tr');
-            var td_image = document.createElement('td');          
-            
-            tr.style.cursor = "pointer";
-            tr.id  = _lastGenIdImg; 
+            var list = document.getElementById('tableImages');
+            list.style.listStyleType = "none";
+            list.style.padding = "0";
 
-            td_image.innerHTML=obj.photoName;;
-            td_image.id  = _lastGenIdImg;
-            td_image.onclick = function() { showImage(this); };
-            td_image.onmouseover = function() { $(this).css('text-decoration', 'underline'); };
-            td_image.onmouseleave = function() { $(this).css('text-decoration', 'none'); };
-
-            var td_remove = document.createElement('td');
-            td_remove.id  = _lastGenIdImg; 
-            td_remove.classList.add('fa');
-            td_remove.classList.add('fa-close');
-            td_remove.onmouseover = function() { $(this).css('color', 'red'); };
-            td_remove.onmouseleave = function() { $(this).css('color', 'black'); };
-            td_remove.onclick = function() { removeImage(this); };
+            var li = document.createElement('li');
+            var span_link = document.createElement('span');
+            //var td_image = document.createElement('td');          
             
-            tr.appendChild(td_image);
-            tr.appendChild(td_remove);
-            table.appendChild(tr);
+            li.id  = _lastGenIdImg; 
+
+            span_link.innerHTML=obj.photoName;
+            span_link.style.cursor = "pointer";
+            span_link.id  = _lastGenIdImg;
+            span_link.onclick = function() { showImage(this); };
+            span_link.onmouseover = function() { $(this).css('text-decoration', 'underline'); };
+            span_link.onmouseleave = function() { $(this).css('text-decoration', 'none'); };
+
+            var span_remove = document.createElement('span');
+            span_remove.style.cursor = "pointer";
+            span_remove.style.marginLeft = "10px";
+            span_remove.id  = _lastGenIdImg; 
+            span_remove.classList.add('fa');
+            span_remove.classList.add('fa-close');
+            span_remove.onmouseover = function() { $(this).css('color', 'red'); };
+            span_remove.onmouseleave = function() { $(this).css('color', 'black'); };
+            span_remove.onclick = function() { removeImage(this); };
+            
+            //tr.appendChild(td_image);
+            li.appendChild(span_link);
+            li.appendChild(span_remove);
+            list.appendChild(li);
 
             _lastGenIdImg++;
 

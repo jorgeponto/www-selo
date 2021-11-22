@@ -16,7 +16,7 @@
 </head>
 
 <body class="sub-page" id="candidatura">
-    <!-- header-start -->
+    <!--header-start-->
     <header>
         
         <div class="header-image" style="height: 50px; display: inline-block; width: 100%;">  
@@ -30,13 +30,13 @@
                 <div style="float: left; margin-right: 4px;">
                     <div id="NAV_10_asp_func" style="display: none; margin-top: 15px; z-index: 1;" class="content-info content-wrapper">
                         <div>
-                            <a style="z-index: 1;" id="10_asp_func_NAV" href="#" onClick="openChecklist('10_asp_func'); return false;" target="_blank" title="Checklist 10 Aspetos Funcionais">Checklist 10 Aspetos Funcionais</a>
+                            <a style="z-index: 1;" id="10_asp_func_NAV" href="#" onClick="openChecklist('10_asp_func'); return false;" target="_blank" title="Abrir checklist 10 aspetos funcionais">Checklist 10 Aspetos Funcionais</a>
                         </div>
                     </div>
                     <div id="divProgressBar_NAV_10_asp_func" style="display: none; z-index: 1;" class="divProgressBar">
                         <div id="progressInfo_NAV_10_asp_func" style="color: white;">
-                            <p id="progressoInfo_NAV_10_asp_func" class="progressoInfo">Progresso: 0/20</p>
-                            <p id="conformidadeInfo_NAV_10_asp_func">Conformidade: 0/20</p>
+                            <p id="progressoInfo_NAV_10_asp_func" class="progressoInfo"></p>
+                            <p id="conformidadeInfo_NAV_10_asp_func"></p>
                         </div>
                     </div>
                 </div>
@@ -44,13 +44,13 @@
                 <div style="float: left; margin-right: 4px;">
                     <div id="NAV_conteudo" style="display: none; margin-top: 15px; z-index: 1;" class="content-info content-wrapper">
                         <div>
-                            <a style="z-index: 1;" id="conteudo_NAV" href="#" onClick="openChecklist('conteudo'); return false;" target="_blank" title="Checklist Conteúdo">Checklist Conteúdo</a>
+                            <a style="z-index: 1;" id="conteudo_NAV" href="#" onClick="openChecklist('conteudo'); return false;" target="_blank" title="Abrir checklist Conteúdo">Checklist Conteúdo</a>
                         </div>
                     </div>
                     <div id="divProgressBar_NAV_conteudo" style="display: none; z-index: 1; " class="divProgressBar">
                         <div id="progressInfo_NAV_conteudo" style="color: white;">
-                            <p id="progressoInfo_NAV_conteudo" class="progressoInfo">Progresso: 0/20</p>
-                            <p id="conformidadeInfo_NAV_conteudo">Conformidade: 0/20</p>
+                            <p id="progressoInfo_NAV_conteudo" class="progressoInfo"></p>
+                            <p id="conformidadeInfo_NAV_conteudo"></p>
                         </div>
                     </div>
                 </div>
@@ -58,13 +58,13 @@
                 <div style="float: right;">
                     <div id="NAV_transacao" style="display: none; margin-top: 15px; z-index: 1;" class="content-info content-wrapper">
                         <div>
-                            <a style="z-index: 1;" id="transacao_NAV" href="#" onClick="openChecklist('transacao'); return false;" target="_blank" title="Checklist Transação">Checklist Transação</a>
+                            <a style="z-index: 1;" id="transacao_NAV" href="#" onClick="openChecklist('transacao'); return false;" target="_blank" title="Abrir checklist Transação">Checklist Transação</a>
                         </div>
                     </div>
                     <div id="divProgressBar_NAV_transacao" style="display: none; z-index: 1; " class="divProgressBar">
                         <div id="progressInfo_NAV_transacao" style="color: white;">
-                            <p id="progressoInfo_NAV_transacao" class="progressoInfo">Progresso: 0/20</p>
-                            <p id="conformidadeInfo_NAV_transacao">Conformidade: 0/20</p>
+                            <p id="progressoInfo_NAV_transacao" class="progressoInfo"></p>
+                            <p id="conformidadeInfo_NAV_transacao"></p>
                         </div>
                     </div>
                 </div>
@@ -74,23 +74,49 @@
         </div>
 	
   </header>
-    <!-- header-end -->
+    <!--header-end-->
 
 
+    <div id="breadcrumb_section">
+        <nav class="nav" aria-label="você está aqui">
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="https://selo.usabilidade.gov.pt/" onClick="clickBreadcumb('home'); return false;">
+                        <picture>
+                            <img src="img/index_home.svg" alt="Ir para a página de entrada" style="width:auto;">
+                        </picture>
+                    </a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page" id="breadcrumb_listas">
+                    <a class="anchor_listas_style" id="anchor_listas" href="#" onClick="clickBreadcumb('listas'); return false;">
+                        Listas de Verificação</a>                  
+                </li>
+                <li class="breadcrumb-item active" aria-current="page" id="breadcrumb_formulario" style="display:none">
+                    <a id="anchor_formulario" href="#" onClick="clickBreadcumb('formulario'); return false;" style="color:black; text-decoration: underline;"></a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page" id="breadcrumb_checklist" style="display:none">
+                    <a id="anchor_checklist" href="#" onClick="clickBreadcumb('checklist'); return false;" style="color:black; text-decoration: underline;"></a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page" id="breadcrumb_requisito" style="color:black; text-decoration: underline; display:none">
+                    <span id="anchor_requisito"></span>
+                </li>
+            </ul>
+        </nav>
+    </div>
 
-    <!-- [0] -- div_inicial_start -->
+    <!--[0]div_inicial_start-->
     <div id="inicial">
-        <h1 style="position: unset; margin-top: 100px; text-align: center;">Checklists AMA</h1> <!-- TROCAR PARA H1 -->
+
+        <h1 style="position: unset; margin-top: 100px; text-align: center;">Listas de verificação do Selo de Usabilidade e  Acessibilidade</h1>
 
         <div id="starUpPage" style="text-align: center;">
-            <!-- <h3 style="display: inline-block;">Começar o preenchimento das checklists para um novo website:</h3>-->
             <div style="display: inline-block;">
-                <button href="#" style="font-size: larger;" class="btn-default " onClick="comecarNovaAvaliacao()" id="botaoComecarNovo">Começar nova avaliação
+                <button style="font-size: larger;" class="btn-default " onClick="comecarNovaAvaliacao()" id="botaoComecarNovo">Começar nova avaliação
                 </button>
             </div>
             <p style="display: inline-block;">  OU   </p>
             <div style="display: inline-block;">
-                <button href="#" style="font-size: larger;" class="btn-default " onClick="carregarAvaliacaoEmCurso()" id="botaoCarregarProgresso">Carregar avaliação em curso
+                <button style="font-size: larger;" class="btn-default " onClick="carregarAvaliacaoEmCurso()" id="botaoCarregarProgresso">Carregar avaliação em curso
                 </button>
             </div>
         </div>
@@ -101,10 +127,8 @@
                 
                 <h2 style="display: inline-block;">Carregar preenchimento em curso</h2>
                 <div id="uploadFiles">
-                    <form>
-                        <input type="file" id="uploadJsonFile" onchange="uploadJson(event)" accept="application/JSON" style="border:none;"/>
-                        <br><br>
-                    </form>
+                    <input type="file" id="uploadJsonFile" onchange="uploadJson(event)" accept="application/JSON" style="border:none;"/>
+                    <br><br>
                 </div>
                 
             </div>
@@ -115,20 +139,21 @@
             </div>
         </div>
     </div>
-    <!-- [0] -- div_inicial_end -->
+    <!--[0]div_inicial_end-->
 
 
     
 
 
-    <!-- [1] -- div_chooseChecklist_start  -->
+    <!--[1]div_chooseChecklist_start-->
     <div id="chooseChecklist" style="display: none; margin-bottom: 50px;">
         <main>
 
             <section class="s-app formStyle">
                 <div class="grid">
                     <div class="wrapper-content">
-                        <form id="myForm" name="candidatura" class="candidatura" action="#">
+                        <h2>Formulário</h2>
+                        <div id="myForm" name="candidatura" class="candidatura formulario">
                             <p class="formLegendBlue">O campo assinalado com * é de preenchimento FUNDAMENTAL quando usado em conjunto com a Extensão do browser, para que esta consiga saber quais páginas avaliar.</p>
                             <div class="all-width">
                                 <label for="designacaoWebsite">Designação do sítio Web</label>
@@ -152,11 +177,9 @@
                             </div>
                             <div class="all-width" style="width: 50%;">
                                 <label for="dataAnalise" >Data</label>
-                                <input id="dataAnalise" type="date" name="data_analise" placeholder="Data da análise" onchange="dataAnalise_change(this.value)"
-                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Data da análise'"
-                                    class="single-input">
+                                <input id="dataAnalise" type="date" name="data_analise" onchange="dataAnalise_change(this.value)" class="single-input">
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -164,17 +187,17 @@
 
             <div style="display: inline-block; text-align: center; width: 100%;margin-top: 10px;" class="content-info content-wrapper">
                 <div style="display: inline-block; margin-right: 30px;">
-                    <a href="#" id="10_asp_func" onClick="openChecklist('10_asp_func'); return false;" target="_blank" title="Checklist 10 Aspetos Funcionais">Checklist 10 Aspetos Funcionais</a>
+                    <a href="#" id="10_asp_func" onClick="openChecklist('10_asp_func'); return false;" target="_blank" title="Abrir checklist 10 Aspetos Funcionais">Checklist 10 Aspetos Funcionais</a>
                     <div id = "progress_10_asp_func"></div>
                     <div id = "conformidade_10_asp_func"></div>
                 </div>
                 <div style="display: inline-block; ">
-                    <a href="#" id="conteudo" onClick="openChecklist('conteudo'); return false;" target="_blank" title="Checklist Conteúdo">Checklist Conteúdo</a>
+                    <a href="#" id="conteudo" onClick="openChecklist('conteudo'); return false;" target="_blank" title="Abrir checklist Conteúdo">Checklist Conteúdo</a>
                     <div id = "progress_conteudo"></div>
                     <div id = "conformidade_conteudo"></div>
                 </div>
                 <div style="display: inline-block; margin-left: 30px;">
-                    <a href="#" id="transacao" onClick="openChecklist('transacao'); return false;" target="_blank" title="Checklist Transação">Checklist Transação</a>
+                    <a href="#" id="transacao" onClick="openChecklist('transacao'); return false;" target="_blank" title="Abrir checklist Transação">Checklist Transação</a>
                     <div id = "progress_transacao"></div>
                     <div id = "conformidade_transacao"></div>
                 </div>
@@ -190,15 +213,20 @@
         </main>
 
     </div>
-    <!-- [1] -- div_chooseChecklist_end  -->
+    <!--[1]div_chooseChecklist_end-->
 
 
 
-    <!-- [2] -- div_checklist_selected_start  -->
+    <!--[2]div_checklist_selected_start-->
     <div id="checklist_selected" style="display: none;padding: 15px;">
         <div style="display:inline-block; width: 100%;">
             <div style="display:inline-block; width: 80%;">
-                <h1 id="titulo_checklist" style="text-align: center; color:black; font-size: 24px; top: unset;"></h1> 
+                <h1 class="titulo_checklist_style" id="titulo_checklist" style="top: unset; position: unset; left: unset;">Checklist</h1> 
+                <div style="text-align: center;">
+                    <p id="progresso_checklist_selected" class="progressoInfo"></p>
+                    <p id="conformidade_checklist_selected"></p>
+                </div>
+                
             </div>
             
             <div style="width: 20%; float: right; text-align: right;">
@@ -210,94 +238,96 @@
         <div style="padding-left: 25px; display:inline-block; width: 100%;">
             <div style="display:inline-block;">
                 <p style="display:inline-block;">Legenda </p> 
-                <i id="expandir_legenda" onclick="expandirLegenda()" class="fa fa-plus" style="color: black; display:inline-block; cursor: pointer;"></i>
+                <a href="#" id="legenda_anchor" aria-label="Expandir legenda"><i id="expandir_legenda" onclick="expandirLegenda()" class="fa fa-plus" style="color: black; display:inline-block; cursor: pointer;"></i></a>
             </div>
             <div id="legenda_div" style="display:none; ">
                 <ul style="list-style-type: none;">
                     <li>
-                        <input type="text" value="NR" style="width:30px; text-align:center; background-color:#FFFFFF;" disabled="true" name="option"/> - Não respondido
+                        <input type="text" value="NR" style="width:30px; text-align:center; background-color:#FFFFFF;" disabled name="option"/> - Não respondido
                     </li>
                     <li>
-                        <input type="text" value="S" style="width:30px; text-align:center; background-color:#90EE90;" disabled="true" name="option"/> - Passou no teste
+                        <input type="text" value="S" style="width:30px; text-align:center; background-color:#90EE90;" disabled name="option"/> - Passou no teste
                     </li>
                     <li>
-                        <input type="text" value="N" style="width:30px; text-align:center; background-color:#FA8072;" disabled="true" name="option"/> - Não passou no teste
+                        <input type="text" value="N" style="width:30px; text-align:center; background-color:#FA8072;" disabled name="option"/> - Não passou no teste
                     </li>
                     <li>
-                        <input type="text" value="NA" style="width:30px; text-align:center; background-color:#BEBEBE" disabled="true" name="option"/> - Não aplicável
+                        <input type="text" value="NA" style="width:30px; text-align:center; background-color:#BEBEBE" disabled name="option"/> - Não aplicável
                     </li>
                     <li>
-                        <input type="text" value="V" style="width:30px; text-align:center; background-color:#FFFF66;" disabled="true" name="option"/> - Necessita de verificação humana (Extensão)
+                        <input type="text" value="V" style="width:30px; text-align:center; background-color:#FFFF66;" disabled name="option"/> - Necessita de verificação humana (Extensão)
                     </li>
                 </ul>
             </div>
 
         </div>
-        <section >
-            <div  style="padding-left: 20px; width:70%;" id="lista-titulos-subtitulos">
+            <div  style="padding-left: 20px; width:70%; margin-bottom: 40px;" id="lista-titulos-subtitulos">
             </div>
-            <br><br><br><br>
-        </section>
     </div>
-    <!-- [2] -- div_checklist_selected_end  -->
+    <!--[2]div_checklist_selected_end-->
 
 
 
-    <!-- [3] -- div_subtitle_selected_start  -->
+    <!--[3]div_subtitle_selected_start-->
     <div id="subtitle_selected" style="display: none; padding: 15px; padding-left: 40px; width: 70%;">
         <div >
             <div id="subtitulo"></div>
             <div id="descricao"></div>
 
-            <label for="radio_div"><h2 style="font-size: 16px;">Resposta:</h2></label>
-            <div id="radio_div" class="field" style="margin-bottom: 25px;">
-                <div class="radio-field">
-                <input type="radio" id="check_sim" value="1" name="option">
-                <label for="check_sim">Sim</label>
+            <fieldset style="width: unset;">
+                <legend style="font-size: 16px; font-weight: bold;">O requisito está conforme?</legend>
+                <div class="field" style="margin-bottom: 40px;">
+                    <div class="radio-field">
+                        <input type="radio" id="check_sim" value="1" name="option">
+                        <label for="check_sim">Sim</label>
+                    </div>
+                    <div class="radio-field">
+                        <input type="radio" id="check_nao" value="1" name="option">
+                        <label for="check_nao">Não</label>
+                    </div>
+            
+                    <div class="radio-field">
+                        <input type="radio" id="check_na" value="1" name="option">
+                        <label for="check_na">Não aplicável</label>
+                    </div>
                 </div>
-                <div class="radio-field">
-                <input type="radio" id="check_nao" value="1" name="option">
-                <label for="check_nao">Não</label>
-                </div>
-        
-                <div class="radio-field">
-                <input type="radio" id="check_na" value="1" name="option">
-                <label for="check_na">NA</label>
-                </div>
-            </div>
+            </fieldset>
 
-            <div id="notasEvidencias" style="margin-bottom: 25px;">
-                <label for="notasEvidencias_textArea"><h2 style="font-size: 16px; margin-bottom: -10px;">Listagem de Evidências e Notas</h2></label>
-                <br>
-                <textarea id="notasEvidencias_textArea" rows="10" cols="80"></textarea>
+            <div id="notasEvidencias" style="margin-bottom: 40px;">
+                <h2 style="font-size: 16px; margin-bottom: -10px;">Recolha de Evidências</h2>
+
+                <p id=”notas-descricao”>Diga-nos porque respondeu Sim, Não ou porque considera  que este requisito é Não Aplicável. Pode ilustrar as suas notas com vídeos, áudios, ou  imagens, usando os dois campos seguintes.</p> 
+                <label style="font-size: 16px; font-weight: bold;" for="notasEvidencias_textArea">Notas em texto</label>
+                <div><textarea id="notasEvidencias_textArea" aria-describedby=”notas-descricao” rows="10" cols="80"></textarea></div>
             </div>
 
             
-            <div id="recursosInternet" style="margin-bottom: 40px; margin-top: 20px;">
-                <label for="recursosInternet_textArea"><h2 style="font-size: 16px;">Recursos da Internet (ex: vídeos, áudios, etc)</h2></label>
+            <div id="recursosInternet" style="margin-bottom: 40px;">
+                <label style="font-size: 16px; font-weight: bold;" for="recursosInternet_textArea">Ficheiros disponíveis online (vídeo, áudio, documentos)</label>
+                <p id=”recursos-descricao”>Vídeos e áudios que evidenciam o julgamento efetuado no presente requisito.</p>
                 <div style="margin-bottom: 10px;" id="recursosList">
-                    <table id="tableRecursos"><tr></tr></table>
+                    <ul style="list-style: none; padding-left: 0px;" id="tableRecursos"></ul>
                 </div>
-                <input type="text" id="recursosInternet_textArea" onkeyup="validURL(this.value)"/> 
+                <input type="text" aria-describedby=”recursos-descricao” id="recursosInternet_textArea" onkeyup="validURL(this.value)"/> 
                 <button class="btn-default " onclick="addRecursoInternet()" id="buttonAddRecurso">Adicionar
                 </button>
             </div>
     
         
                 
-            <div id="uploadFiles" style="margin-bottom: 20px;">
-                <label for="filesUploadedChecklist"><h2 style="font-size: 16px;">Imagens</h2></label>
+            <div style="margin-bottom: 40px;">
+                <label style="font-size: 16px; font-weight: bold;" for="filesUploadedChecklist">Imagens</label>
                     
                     <div style="margin-bottom: 10px;" id="fileListChecklist">
-                        <table id="tableImages"><tr></tr></table>
+                        <ul style="list-style: none; padding-left: 0px;" id="tableImages"></ul>
                     </div>
 
                     <input type="file" multiple="multiple" id="filesUploadedChecklist" onchange="updateList()" accept="image/*"/>
 
-                    <!-- The Modal -->
+                    <!--The Modal-->
                     <div id="myModal" class="modal">
                         <span class="close">&times;</span>
-                        <img class="modal-content" id="img01">
+                        <img class="modal-content" src="#" alt="visualizacao de imagem carregada" id="img01">
                         <div id="caption"></div>
                     </div>
             </div>
@@ -309,11 +339,11 @@
         </div>
 
     </div>
-    <!-- [3] -- div_subtitle_selected_end  -->
+    <!--[3]div_subtitle_selected_end-->
 
 
 
-    <!-- footer start -->
+    <!--footer start-->
     <footer id="footer_ama" class="footerStyle">
         <div class="sponsors-copy">
             <div class="grid">
@@ -342,11 +372,11 @@
             </div>
         </div>
     </footer>
-    <!-- footer end  -->
+    <!--footer end-->
 
 
 
-        <!-- JS here -->
+        <!--JS here-->
         <script src="js/modernizr-3.5.0.min.js"></script>
         <script src="js/jquery-1.12.4.min.js"></script>
     

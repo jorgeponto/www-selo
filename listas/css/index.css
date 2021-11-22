@@ -118,3 +118,186 @@ button:focus-visible {
   outline-style: solid;
   outline-color: rgb(26, 50, 184);
 }
+
+
+#breadcrumb_section ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#breadcrumb_section li {
+  display: block;
+  text-align: center;
+  padding-left: 10px;
+  padding-top: 10px;
+  text-decoration: none;
+  float: left;
+}
+
+#breadcrumb_section li + li::before {
+  content: "/";
+}
+
+
+.formulario div{
+	display:inline-block;
+	width: calc(50% - 25px);
+    float: left;
+    position:relative;
+    margin-bottom: 30px;
+    font-size:16px;
+    
+}
+.formulario div.all-width{
+	width:100%;
+}
+.formulario label{
+	color:white;
+	display: block;
+	margin-bottom:10px;
+	font-weight: bold;
+}
+
+.formulario input{
+	border:none;
+	box-shadow: none;
+	border-radius:20px;
+	height:40px;
+	padding:0 20px;
+	width: 100%;
+    box-sizing: border-box;
+    outline:none;
+    color: #2980b9;
+    font-weight: bold;
+    border:1px solid #2980b9;
+}
+.formulario textarea{
+	border:none;
+	box-shadow: none;
+	border-radius:20px;
+	height:160px;
+	padding:0 20px;
+	width: 100%;
+    box-sizing: border-box;
+    outline:none;
+    color: #2980b9;
+    /* font-weight: bold; */
+    border:1px solid #2980b9;
+    padding:15px;
+}
+.formulario input[type="submit"]{
+	display:inline-block;
+	max-width:200px;
+	height:40px;
+	background:#c29300;
+	float:right;
+	color:white;
+	cursor:pointer;
+	margin:15px 0;
+	border:none;
+}
+.formulario select{
+	border:none;
+	box-shadow: none;
+	border-radius:20px;
+	height:40px;
+	padding:0 20px;
+	width: 100%;
+    box-sizing: border-box;
+    outline:none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    color: #2980b9;
+    font-weight: bold;
+    cursor:pointer;
+    background: white;
+    border:1px solid #2980b9;
+}
+
+
+.formulario div:first-of-type{
+	margin-right:50px;
+}
+
+.formulario div:nth-of-type(3){
+	margin-right: 50px;
+}
+
+.formulario div.select:after{
+	    content: "";
+    display: inline-block;
+    background-image: url("../img/icon_seta_azul.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    bottom: 10px;
+    transform: rotate(-90deg);
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+}
+
+.s-contact .formulario label{
+	color:#2980b9;
+	text-align: left;
+	padding-left:10px;
+}
+
+.formulario fieldset{
+  width:100%;
+}
+.formulario div{
+  margin-bottom:15px;
+}
+
+.formulario div{
+  width:100%;
+}
+
+.formulario input[type="submit"]{
+  background: #2d80b9;
+}
+.formulario input{
+  border:none;
+  box-shadow: none;
+  border-radius:20px;
+  height:40px;
+  padding:0 20px;
+  width: 100%;
+  box-sizing: border-box;
+  outline:none;
+  color: #2980b9;
+  font-weight: normal !important;
+  border:1px solid #2980b9;
+}
+
+.formulario label {
+  color: white;
+  display: block;
+  margin-bottom: 0px !important; 
+  font-weight: bold;
+}
+
+.formulario {
+	margin-bottom:50px;
+}
+
+.formulario label span {
+	display:inline !important;
+}
+
+.anchor_listas_style {
+  color:black; 
+  text-decoration: underline;
+}
+
+.titulo_checklist_style {
+  text-align: center; 
+  color:black; 
+  font-size: 24px; 
+}
