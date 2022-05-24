@@ -733,7 +733,7 @@ function preencheMaps (){
         mapSubtitulos.set("2.4", "O espaçamento entre linhas não é inferior a 1.5x o tamanho da letra");
         mapSubtitulos.set("3.1", "Nenhum nível de navegação tem mais de 9 opções");
         mapSubtitulos.set("3.2", "A navegação principal está sempre visível e sempre no mesmo local");
-        mapSubtitulos.set("3.3", "A navegação principal está sempre visível e sempre no mesmo local");
+        mapSubtitulos.set("3.3", "As hiperligações de texto não devem ser diferenciadas apenas com base na cor");
         mapSubtitulos.set("4.1", "Os documentos longos têm um índice no topo com hiperligações internas para o mesmo");
         mapSubtitulos.set("4.2", "O layout do sítio Web é adaptável a plataformas móveis sem necessidade de efetuar varrimento horizontal");
         mapSubtitulos.set("5.1", "Não existem elementos interativos acionados apenas com a passagem do rato (hover)");
